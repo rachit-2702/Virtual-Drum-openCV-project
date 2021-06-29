@@ -3,7 +3,7 @@ import pygame
 import time
 import numpy as np
 import cv2
-img1 = cv2.imread('C:\\Users\\rachi\\Desktop\\splash.jpg', -1)
+img1 = cv2.imread('drums/splash.jpg', -1)
 img1 = cv2.resize(img1, (0, 0), fx=0.8, fy=0.8)
 img1 = cv2.cvtColor(img1, cv2.COLOR_BGR2BGRA)
 img_h, img_w, img_c = img1.shape
@@ -11,10 +11,10 @@ i = 0
 j = 0
 k = (img_w)
 l = (img_h)
-img2 = cv2.imread('C:\\Users\\rachi\\Desktop\\tom.jpg', -1)
+img2 = cv2.imread('drums/tom.jpg', -1)
 img2 = cv2.resize(img2, (k, l))
 img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2BGRA)
-img3 = cv2.imread('C:\\Users\\rachi\\Desktop\\snare.jpg', -1)
+img3 = cv2.imread('drums/snare.jpg', -1)
 img3 = cv2.resize(img3, (k, l))
 img3 = cv2.cvtColor(img3, cv2.COLOR_BGR2BGRA)
 cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
@@ -66,15 +66,15 @@ while True:
             if all(blue_result3[i][j][1] != [0, 0, 0]):
                 blue_con3 += 1
     if blue_con1 > 200 and time.time()-time_1 > time_delay:
-        mixer.music.load('C:\\Users\\rachi\\Desktop\\splash.ogg')
+        mixer.music.load('drums/splash.ogg')
         mixer.music.play()
         time_1 = time.time()
     if blue_con2 > 200 and time.time()-time_1 > time_delay:
-        mixer.music.load('C:\\Users\\rachi\\Desktop\\tom.ogg')
+        mixer.music.load('drums/tom.ogg')
         mixer.music.play()
         time_1 = time.time()
     if blue_con3 > 200 and time.time()-time_1 > time_delay:
-        mixer.music.load('C:\\Users\\rachi\\Desktop\\snare.ogg')
+        mixer.music.load('drums/snare.ogg')
         mixer.music.play()
         time_1 = time.time()
     overlay = np.zeros((frame_h, frame_w, 4), dtype='uint8')
